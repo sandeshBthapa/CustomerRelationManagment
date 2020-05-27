@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+       {% for foo in form %}
+            {{ foo }}
+           <hr>
+       {% endfor %}
+        <input class="btn btn-info btn-sm" type="submit" name="Create Order">
+
+
+    </form>
+
+{% endblock %}

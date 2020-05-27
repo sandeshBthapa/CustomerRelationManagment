@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ fromSet.management_form }}
+        {% for foo in fromSet %}
+            {{ foo }}
+            <hr>
+
+        {% endfor %}
+
+
+        <input class="btn btn-info btn-sm" type="submit" name="Create Order">
+
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% block content %}
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white mb-3" id="total-order">
+                    <div class="card-header">
+                        <h5 class="card-title">Total order</h5>
+                    </div>
+                            <div class="card-body">
+                                <h3 class="card-title">{{ total_order }}</h3>
+                            </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+
+
+
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Date Ordered</th>
+                        <th>Status</th>
+                    </tr>
+                   {% for orders in order %}
+                       <tr>
+                       <td>{{ orders.product }}</td>
+                       <td>{{ orders.product.category }}</td>
+                       <td>{{ orders.date_created }}</td>
+                       <td>{{ orders.status }}</td>
+                       </tr>
+
+                   {% endfor %}
+
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}l %}

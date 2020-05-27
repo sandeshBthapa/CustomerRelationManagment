@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <p>Are you sure you want to remove {{ order }} </p>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <a href="" class="btn btn-info btn-sm">Cancel</a>
+                    <input type="submit" class="btn btn-danger btn-sm" name="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

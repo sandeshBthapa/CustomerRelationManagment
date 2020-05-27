@@ -1,0 +1,44 @@
+<style>
+    .hello {
+        color: white;
+        font-size: 18px;
+        margin: 10px;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    {% if request.user.is_staff %}
+        <a class="navbar-brand" href="#">Admin DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{% url 'homePage' %}">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'product' %}">Products</a>
+                </li>
+            </ul>
+        </div>
+
+    {% else %}
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <a class="navbar-brand" href="{% url 'user_page' %}">Customer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_acc' %}">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+
+    {% endif %}
+    <span class="hello"> Welcome,{{ request.user }} </span>
+    <span><a class="hello" href="{% url 'logout' %}">LogOut</a></span>
+</nav>
